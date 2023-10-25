@@ -1,0 +1,8 @@
+@host=http://localhost:5161
+POST {{host}}/auth/login
+Content-Type: "application/javascript"
+
+{
+    "email" "rodney@example.com",
+    "password" "thinnestline"
+}
