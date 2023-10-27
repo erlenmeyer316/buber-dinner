@@ -18,7 +18,11 @@
   </ItemGroup>
 
   <Target Name="CreateSwaggerJson" AfterTargets="Build" Condition="$(Configuration)=='Debug'">
-    <Exec Command="dotnet swagger tofile --output ./swagger.json $(OutputPath)$(AssemblyName).dll v1" WorkingDirectory="$(ProjectDir)" />
+    <ItemGroup>
+      <FilesToDelete Include="$(ProjectDir)../Docs/swagger.json" />
+    </ItemGroup>
+    <Delete Files="@(FilesToDelete)" />
+    <Exec Command="dotnet swagger tofile --output ../Docs/swagger.json $(OutputPath)$(AssemblyName).dll v1" WorkingDirectory="$(ProjectDir)" />
   </Target>
 
 </Project>
