@@ -24,7 +24,7 @@ namespace BuberDinner.Application.Services.Authentication
         public AuthenticationResult Register(string firstName, string lastName, string email, string password)
         {
             // Check if user exists
-            // Create user (genereate unique id)
+            // Create user (generate unique id)
             Guid userId = Guid.NewGuid();
 
             // Create jwt token
