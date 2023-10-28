@@ -39,8 +39,9 @@ namespace BuberDinner.Infrastructure.Authentication
             };
 
             var securityToken = new JwtSecurityToken(
-                issuer: "BuberDinner",
-                expires: _dateTimeProvider.UtcNow.AddMinutes(60),
+                issuer: _jwtSettings.Issuer,
+                audience: _jwtSettings.Audience,
+                expires: _dateTimeProvider.UtcNow.AddMinutes(_jwtSettings.ExpiryMinutes),
                 claims: claims,
                 signingCredentials: signingCredentials
             );
