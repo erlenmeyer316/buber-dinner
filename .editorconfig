@@ -87,3 +87,6 @@ dotnet_diagnostic.SA1111.severity = None
 
 # Braces should not be ommitted
 dotnet_diagnostic.SA1503.severity = None
+
+# The keyword 'new' should be followed by a space.
+dotnet_diagnostic.SA1000.severity = None
