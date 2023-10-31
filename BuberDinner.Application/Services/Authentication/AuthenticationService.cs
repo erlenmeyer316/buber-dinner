@@ -22,7 +22,7 @@ namespace BuberDinner.Application.Services.Authentication
             var user = _userRepository.GetUserByEmail(email);
             if (user is null)
             {
-                throw new AuthenticationException("User with given email does not exist");
+                throw new Exception("User with given email does not exist");
             }
 
             // 2. Validate the password is correct
@@ -44,7 +44,7 @@ namespace BuberDinner.Application.Services.Authentication
             // 1. Validate the user doesn't exist
             if (_userRepository.GetUserByEmail(email) is not null)
             {
-                throw new InvalidDataException("User with given email already exists");
+                throw new Exception("User with given email already exists");
             }
 
             // 2. Create user (generate unique id) and persist to database
