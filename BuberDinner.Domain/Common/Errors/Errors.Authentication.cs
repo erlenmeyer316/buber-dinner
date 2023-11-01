@@ -8,12 +8,15 @@ namespace BuberDinner.Domain.Common.Errors
 {
     public static partial class Errors
     {
-        public static class User
+        public static class Authentication
         {
-            public static Error DuplicateEmail => Error.Conflict(
-                code: "User.DuplicateEmail",
-                description: "Email is already in use."
+            public static Error InvalidCredentials => Error.Validation(
+                code: "Authentication.InvalidCredentials",
+                description: "Email or password is incorrect."
             );
+
         }
+
+
     }
 }

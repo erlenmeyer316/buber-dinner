@@ -1,13 +1,13 @@
 using BuberDinner.Application.Services.Authentication;
 using BuberDinner.Contracts.Authentication;
+using BuberDinner.Domain.Common.Errors;
 using ErrorOr;
 using Microsoft.AspNetCore.Mvc;
 
 namespace BuberDinner.Api.Controllers
 {
-    [ApiController]
     [Route("auth")]
-    public class AuthenticationController : ControllerBase
+    public class AuthenticationController : ApiController
     {
         private readonly IAuthenticationService _authenticationService;
 
@@ -25,13 +25,37 @@ namespace BuberDinner.Api.Controllers
                 request.Email,
                 request.Password);
 
+            // if authResult is of type AuthenticationResult, return new AuthenticationResponse
+            // if authResult is of type Error, return Problem(statusCode: StatusCodes.Status409Conflict, title: "User already exists.")
             return authResult.Match(
-                authResult => Ok(NewMethod(authResult)),
-                _ => Problem(statusCode: StatusCodes.Status409Conflict, title: "User already exists.")
+                authResult => Ok(MapAuthResult(authResult)),
+                errors => Problem(errors)
             );
         }
 
-        private static AuthenticationResponse NewMethod(AuthenticationResult authResult)
+
+        [HttpPost("login")]
+        public IActionResult Login(LoginRequest request)
+        {
+            ErrorOr<AuthenticationResult> authResult = _authenticationService.Login(
+                request.Email,
+                request.Password);
+
+            if (authResult.IsError && authResult.FirstError == Errors.Authentication.InvalidCredentials)
+            {
+                return Problem(
+                    statusCode: StatusCodes.Status401Unauthorized,
+                    title: authResult.FirstError.Description);
+            }
+
+            return authResult.Match(
+                authResult => Ok(MapAuthResult(authResult)),
+                errors => Problem(errors)
+            );
+        }
+
+
+        private static AuthenticationResponse MapAuthResult(AuthenticationResult authResult)
         {
             return new AuthenticationResponse(
                 authResult.User.Id,
@@ -39,23 +63,6 @@ namespace BuberDinner.Api.Controllers
                 authResult.User.LastName,
                 authResult.User.Email,
                 authResult.Token);
-        }
-
-        [HttpPost("login")]
-        public IActionResult Login(LoginRequest request)
-        {
-            var loginResult = _authenticationService.Login(
-                request.Email,
-                request.Password);
-
-            var response = new AuthenticationResponse(
-                loginResult.User.Id,
-                loginResult.User.FirstName,
-                loginResult.User.LastName,
-                loginResult.User.Email,
-                loginResult.Token);
-
-            return Ok(response);
         }
     }
 }

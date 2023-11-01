@@ -1,5 +1,5 @@
+using System.Reflection.Metadata;
 using System.Security.Authentication;
-using BuberDinner.Application.Common.Errors;
 using BuberDinner.Application.Common.Interfaces.Authentication;
 using BuberDinner.Application.Common.Interfaces.Persistence;
 using BuberDinner.Domain.Common.Errors;
@@ -19,19 +19,19 @@ namespace BuberDinner.Application.Services.Authentication
             _userRepository = userRepository;
         }
 
-        public AuthenticationResult Login(string email, string password)
+        public ErrorOr<AuthenticationResult> Login(string email, string password)
         {
             // 1. Validate the user exists
             var user = _userRepository.GetUserByEmail(email);
             if (user is null)
             {
-                throw new Exception("User with given email does not exist");
+                return Errors.Authentication.InvalidCredentials;
             }
 
             // 2. Validate the password is correct
             if (user.Password != password)
             {
-                throw new AuthenticationException("Password is incorrect");
+                return new[] { Errors.Authentication.InvalidCredentials };
             }
 
             // 3. Create jwt token
