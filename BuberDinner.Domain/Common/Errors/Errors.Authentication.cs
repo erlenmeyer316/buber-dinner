@@ -14,9 +14,6 @@ namespace BuberDinner.Domain.Common.Errors
                 code: "Authentication.InvalidCredentials",
                 description: "Email or password is incorrect."
             );
-
         }
-
-
     }
 }

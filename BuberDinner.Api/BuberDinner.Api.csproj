@@ -17,13 +17,4 @@
     <ProjectReference Include="..\BuberDinner.Contracts\BuberDinner.Contracts.csproj" />
     <ProjectReference Include="..\BuberDinner.Infrastructure\BuberDinner.Infrastructure.csproj" />
   </ItemGroup>
-
-  <Target Name="CreateSwaggerJson" AfterTargets="Build" Condition="$(Configuration)=='Debug'">
-    <ItemGroup>
-      <FilesToDelete Include="$(ProjectDir)../Docs/swagger.json" />
-    </ItemGroup>
-    <Delete Files="@(FilesToDelete)" />
-    <Exec Command="dotnet swagger tofile --output ../Docs/swagger.json $(OutputPath)$(AssemblyName).dll v1" WorkingDirectory="$(ProjectDir)" />
-  </Target>
-
 </Project>

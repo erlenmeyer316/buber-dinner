@@ -1,13 +1,13 @@
 namespace BuberDinner.Application
 {
-    using BuberDinner.Application.Services.Authentication;
+    using MediatR;
     using Microsoft.Extensions.DependencyInjection;
 
     public static class DependencyInjection
     {
         public static IServiceCollection AddApplication(this IServiceCollection services)
         {
-            services.AddScoped<IAuthenticationService, AuthenticationService>();
+            services.AddMediatR(config => config.RegisterServicesFromAssembly(typeof(DependencyInjection).Assembly));
 
             return services;
         }
