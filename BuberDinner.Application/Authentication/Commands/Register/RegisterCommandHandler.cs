@@ -1,7 +1,3 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using BuberDinner.Application.Authentication.Common;
 using BuberDinner.Application.Common.Interfaces.Authentication;
 using BuberDinner.Application.Common.Interfaces.Persistence;
@@ -26,6 +22,7 @@ namespace BuberDinner.Application.Authentication.Commands.Register
 
         public async Task<ErrorOr<AuthenticationResult>> Handle(RegisterCommand command, CancellationToken cancellationToken)
         {
+            await Task.CompletedTask;
             // 1. Validate the user doesn't exist
             if (_userRepository.GetUserByEmail(command.Email) is not null)
             {

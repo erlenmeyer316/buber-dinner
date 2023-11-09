@@ -1,12 +1,9 @@
 namespace BuberDinner.Infrastructure.Authentication
 {
     using System;
-    using System.Collections.Generic;
     using System.IdentityModel.Tokens.Jwt;
-    using System.Linq;
     using System.Security.Claims;
     using System.Text;
-    using System.Threading.Tasks;
     using BuberDinner.Application.Common.Interfaces.Authentication;
     using BuberDinner.Application.Common.Interfaces.Services;
     using BuberDinner.Domain.Entities;
