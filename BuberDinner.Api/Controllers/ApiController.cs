@@ -2,12 +2,14 @@ using System.ComponentModel.DataAnnotations;
 using BuberDinner.Api.Common.Http;
 using BuberDinner.Domain.Common.Errors;
 using ErrorOr;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.ModelBinding;
 
 namespace BuberDinner.Api.Controllers
 {
     [ApiController]
+    [Authorize]
     [ApiExplorerSettings(IgnoreApi = true)]
     public class ApiController : ControllerBase
     {
