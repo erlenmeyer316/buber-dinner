@@ -1,0 +1,11 @@
+@host=http://127.0.0.1:5201
+
+POST {{host}}/auth/register
+Content-Type: application/json
+
+{
+    "firstName": "Adam",
+    "lastName": "Dickison",
+    "email": "dickison.12@osu.edu",
+    "password": "LetmeinPlease123!"
+}
