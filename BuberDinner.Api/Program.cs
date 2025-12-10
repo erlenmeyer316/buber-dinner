@@ -1,3 +1,4 @@
+using BuberDinner.Api.Filters;
 using BuberDinner.Api.Middleware;
 using BuberDinner.Application;
 using BuberDinner.Application.Services.Authentication;
@@ -12,7 +13,7 @@ builder.Configuration.AddUserSecrets<Program>();
 builder.Services.AddApplication();
 builder.Services.AddInfrastructure(builder.Configuration);
 
-builder.Services.AddControllers();
+builder.Services.AddControllers(options => options.Filters.Add<ErrorHandlingFilterAttribute>());
 // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
 builder.Services.AddOpenApi();
 
@@ -25,7 +26,7 @@ if (app.Environment.IsEnvironment("Local"))
     app.MapScalarApiReference();
 }
 
-app.UseMiddleware<ErrorHandlingMiddleware>();
+//app.UseMiddleware<ErrorHandlingMiddleware>();
 
 app.UseHttpsRedirection();
 
