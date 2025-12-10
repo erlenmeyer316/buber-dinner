@@ -13,13 +13,25 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BuberDinner.Application", "
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BuberDinner.Api", "BuberDinner.Api\BuberDinner.Api.csproj", "{C6D8BB7C-1F5F-41BC-A7E3-BAEE7BA49A2D}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Requests", "Requests", "{FF7E0287-F91B-9293-4B04-0777FC500DE8}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Authentication", "Authentication", "{336305FA-707E-23D4-6976-389B882E26A9}"
+	ProjectSection(SolutionItems) = preProject
+		Requests\Authentication\Login.http = Requests\Authentication\Login.http
+		Requests\Authentication\Register.http = Requests\Authentication\Register.http
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Docs", "Docs", "{208BA388-4CEE-2CBF-559C-5607C099C1F8}"
+	ProjectSection(SolutionItems) = preProject
+		Docs\Api.md = Docs\Api.md
+		Docs\DomainModels.md = Docs\DomainModels.md
+		Docs\Tutorial.md = Docs\Tutorial.md
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
-	EndGlobalSection
-	GlobalSection(SolutionProperties) = preSolution
-		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{043356A5-6151-4135-A391-B85E99C11B2C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
@@ -42,5 +54,11 @@ Global
 		{C6D8BB7C-1F5F-41BC-A7E3-BAEE7BA49A2D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C6D8BB7C-1F5F-41BC-A7E3-BAEE7BA49A2D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C6D8BB7C-1F5F-41BC-A7E3-BAEE7BA49A2D}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{336305FA-707E-23D4-6976-389B882E26A9} = {FF7E0287-F91B-9293-4B04-0777FC500DE8}
 	EndGlobalSection
 EndGlobal
