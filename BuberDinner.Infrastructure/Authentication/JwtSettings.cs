@@ -5,9 +5,9 @@ namespace BuberDinner.Infrastructure.Authentication;
 public class JwtSettings
 {
     public const string SectionName = "JwtSettings";
-    public string SecretKey { get; init; } = null!;
+    public required string SecretKey { get; init; }
     public int ExpiryMinutes { get; init; }
-    public string Issuer { get; init; } = null!;
-    public string Audience { get; init; } = null!;
+    public required string Issuer { get; init; }
+    public required string Audience { get; init; }
     
 }
