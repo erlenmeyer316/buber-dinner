@@ -1,8 +1,10 @@
+using BuberDinner.Api.Errors;
 using BuberDinner.Api.Filters;
 using BuberDinner.Api.Middleware;
 using BuberDinner.Application;
 using BuberDinner.Application.Services.Authentication;
 using BuberDinner.Infastructure;
+using Microsoft.AspNetCore.Mvc.Infrastructure;
 using Scalar.AspNetCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -13,7 +15,9 @@ builder.Configuration.AddUserSecrets<Program>();
 builder.Services.AddApplication();
 builder.Services.AddInfrastructure(builder.Configuration);
 
-builder.Services.AddControllers(options => options.Filters.Add<ErrorHandlingFilterAttribute>());
+//builder.Services.AddControllers(options => options.Filters.Add<ErrorHandlingFilterAttribute>());
+builder.Services.AddControllers();
+builder.Services.AddSingleton<ProblemDetailsFactory, BuberDinnerProblemDetailsFactory>();
 // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
 builder.Services.AddOpenApi();
 
@@ -27,6 +31,8 @@ if (app.Environment.IsEnvironment("Local"))
 }
 
 //app.UseMiddleware<ErrorHandlingMiddleware>();
+
+app.UseExceptionHandler("/error");
 
 app.UseHttpsRedirection();
 
