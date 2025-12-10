@@ -1,4 +1,4 @@
-@host=http://127.0.0.1:5201
+@host=http://127.0.0.1:5098
 
 POST {{host}}/auth/register
 Content-Type: application/json
