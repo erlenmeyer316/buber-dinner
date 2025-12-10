@@ -1,3 +1,4 @@
+using BuberDinner.Api.Middleware;
 using BuberDinner.Application;
 using BuberDinner.Application.Services.Authentication;
 using BuberDinner.Infastructure;
@@ -15,7 +16,6 @@ builder.Services.AddControllers();
 // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
 builder.Services.AddOpenApi();
 
-
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -24,6 +24,8 @@ if (app.Environment.IsEnvironment("Local"))
     app.MapOpenApi();
     app.MapScalarApiReference();
 }
+
+app.UseMiddleware<ErrorHandlingMiddleware>();
 
 app.UseHttpsRedirection();
 
