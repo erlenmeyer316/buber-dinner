@@ -1,6 +1,5 @@
 using BuberDinner.Api.Common.Errors;
 using BuberDinner.Application;
-using BuberDinner.Application.Services.Authentication;
 using BuberDinner.Infastructure;
 using Microsoft.AspNetCore.Mvc.Infrastructure;
 using Scalar.AspNetCore;

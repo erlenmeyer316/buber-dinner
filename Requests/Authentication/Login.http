@@ -5,5 +5,15 @@ Content-Type: application/json
 
 {
     "email": "dickison.12@osu.edu",
-    "password": "d!"
+    "password": "validpassword"
+}
+
+###
+
+POST {{host}}/auth/login
+Content-Type: application/json
+
+{
+    "email": "dickison.12@osu.edu",
+    "password": "invalidpassword"
 }
