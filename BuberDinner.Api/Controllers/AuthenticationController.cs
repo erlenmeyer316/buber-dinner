@@ -1,6 +1,8 @@
+using BuberDinner.Application.Common.Errors;
 using BuberDinner.Application.Services.Authentication;
 using BuberDinner.Contracts.Authentication;
 using Microsoft.AspNetCore.Mvc;
+using OneOf;
 
 namespace BuberDinner.Api.Controllers;
 
@@ -17,15 +19,26 @@ public class AuthenticationController : ControllerBase
     [HttpPost("register")]
     public IActionResult Register(RegisterRequest request)
     {
-        var registerResult = _authenticationService.Register(request.FirstName, request.LastName, request.Email, request.Password);
-        var response = new AuthenticationResponse(
-            registerResult.User.Id,
-            registerResult.User.FirstName,
-            registerResult.User.LastName,
-            registerResult.User.Email,
-            registerResult.Token
-        );
-        return Ok(response);
+        OneOf<AuthenticationResult, IError> registerResult = _authenticationService.Register(
+            request.FirstName,
+            request.LastName,
+            request.Email,
+            request.Password);
+
+        return registerResult.Match(
+            authResult => Ok(MapAuthResult(authResult)),
+            error => Problem(statusCode: (int)error.StatusCode, title: error.ErrorMessage));
+    }
+
+    private static AuthenticationResponse MapAuthResult(AuthenticationResult authResult)
+    {
+        return new AuthenticationResponse(
+                        authResult.User.Id,
+                        authResult.User.FirstName,
+                        authResult.User.LastName,
+                        authResult.User.Email,
+                        authResult.Token
+                    );
     }
 
     [HttpPost("login")]
