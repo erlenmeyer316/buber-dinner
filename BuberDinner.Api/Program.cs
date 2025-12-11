@@ -1,6 +1,4 @@
-using BuberDinner.Api.Errors;
-using BuberDinner.Api.Filters;
-using BuberDinner.Api.Middleware;
+using BuberDinner.Api.Common.Errors;
 using BuberDinner.Application;
 using BuberDinner.Application.Services.Authentication;
 using BuberDinner.Infastructure;
@@ -29,8 +27,6 @@ if (app.Environment.IsEnvironment("Local"))
     app.MapOpenApi();
     app.MapScalarApiReference();
 }
-
-//app.UseMiddleware<ErrorHandlingMiddleware>();
 
 app.UseExceptionHandler("/error");
 
