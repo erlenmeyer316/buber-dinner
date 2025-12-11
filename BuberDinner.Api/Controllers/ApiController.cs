@@ -1,5 +1,6 @@
 using BuberDinner.Api.Common.Http;
 using ErrorOr;
+using MediatR;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -7,7 +8,7 @@ namespace BuberDinner.Api.Controllers
 {
     [ApiController]
     public class ApiController : ControllerBase
-    {
+    {        
         protected IActionResult Problem(List<Error> errors)
         {
             HttpContext.Items[HttpContextItemKeys.Errors] = errors;

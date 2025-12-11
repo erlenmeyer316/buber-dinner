@@ -3,10 +3,16 @@
     <ProjectReference Include="..\BuberDinner.Domain\BuberDinner.Domain.csproj" />
   </ItemGroup>
   <ItemGroup>
+    <PackageReference Include="MediatR" Version="11.1.0" />
+    <PackageReference Include="MediatR.Extensions.Microsoft.DependencyInjection" Version="11.1.0" />
     <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="9.0.11" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Services/Authentication/Queries/" />
+    <Folder Include="Authentication/" />
+    <Folder Include="Authentication/Commands/" />
+    <Folder Include="Authentication/Commands/Register/" />
+    <Folder Include="Authentication/Common/" />
+    <Folder Include="Authentication/Queries/" />
   </ItemGroup>
   <PropertyGroup>
     <TargetFramework>net9.0</TargetFramework>

@@ -1,6 +1,9 @@
+
+
+
+
+using MediatR;
 using Microsoft.Extensions.DependencyInjection;
-using BuberDinner.Application.Services.Authentication.Commands;
-using BuberDinner.Application.Services.Authentication.Queries;
 
 
 namespace BuberDinner.Application;
@@ -9,8 +12,7 @@ public static class DependecyInjection
 {
     public static IServiceCollection AddApplication(this IServiceCollection services)
     {
-        services.AddScoped<IAuthenticationCommandService, AuthenticationCommandService>();
-        services.AddScoped<IAuthenticationQueryService, AuthenticationQueryService>();
+        services.AddMediatR(typeof(DependecyInjection).Assembly);
         
         return services;
     }
