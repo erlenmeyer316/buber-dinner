@@ -6,6 +6,8 @@
     <UserSecretsId>60482ae4-7d1e-4be3-ba9e-1dcea8a428ba</UserSecretsId>
   </PropertyGroup>
   <ItemGroup>
+    <PackageReference Include="Mapster" Version="7.4.0" />
+    <PackageReference Include="Mapster.DependencyInjection" Version="1.0.1" />
     <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="9.0.11" />
     <PackageReference Include="Microsoft.Extensions.Configuration.UserSecrets" Version="10.0.1" />
     <PackageReference Include="Scalar.AspNetCore" Version="2.9.0" />
@@ -14,5 +16,8 @@
     <ProjectReference Include="..\BuberDinner.Contracts\BuberDinner.Contracts.csproj" />
     <ProjectReference Include="..\BuberDinner.Application\BuberDinner.Application.csproj" />
     <ProjectReference Include="..\BuberDinner.Infrastructure\BuberDinner.Infrastructure.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Common/Mapping/" />
   </ItemGroup>
 </Project>
