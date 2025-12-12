@@ -9,3 +9,15 @@ Content-Type: application/json
     "email": "dickison.12@osu.edu",
     "password": "validpassword"
 }
+
+###
+
+POST {{host}}/auth/register
+Content-Type: application/json
+
+{
+    "firstName": "",
+    "lastName": "",
+    "email": "dickison.12@osu.edu",
+    "password": "validpassword"
+}

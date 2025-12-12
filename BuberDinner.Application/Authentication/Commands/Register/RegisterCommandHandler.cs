@@ -22,6 +22,7 @@ public class RegisterCommandHandler : IRequestHandler<RegisterCommand, ErrorOr<A
 
     public async Task<ErrorOr<AuthenticationResult>> Handle(RegisterCommand command, CancellationToken cancellationToken)
     {
+        await Task.CompletedTask;
            // Ensure use doesn't already exist
         if (_userRepository.GetUserByEmail(command.Email) is not null)
         {
@@ -42,6 +43,6 @@ public class RegisterCommandHandler : IRequestHandler<RegisterCommand, ErrorOr<A
         // Create jwt token        
         var token = _jwtTokenGenerator.GenerateToken(user);
 
-        return await Task.FromResult(new AuthenticationResult(user, token));
+        return new AuthenticationResult(user, token);
     }
 }

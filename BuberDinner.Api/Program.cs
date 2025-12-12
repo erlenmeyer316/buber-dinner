@@ -1,4 +1,6 @@
+using BuberDinner.Api;
 using BuberDinner.Api.Common.Errors;
+using BuberDinner.Api.Common.Mapping;
 using BuberDinner.Application;
 using BuberDinner.Infastructure;
 using Microsoft.AspNetCore.Mvc.Infrastructure;
@@ -8,13 +10,11 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Configuration.AddUserSecrets<Program>();
 
 
-// Add services to the container.
+// Add service layers to the container.
+builder.Services.AddPresentation();
 builder.Services.AddApplication();
 builder.Services.AddInfrastructure(builder.Configuration);
 
-//builder.Services.AddControllers(options => options.Filters.Add<ErrorHandlingFilterAttribute>());
-builder.Services.AddControllers();
-builder.Services.AddSingleton<ProblemDetailsFactory, BuberDinnerProblemDetailsFactory>();
 // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
 builder.Services.AddOpenApi();
 
