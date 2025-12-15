@@ -1,0 +1,11 @@
+<Project>
+  <!-- See https://aka.ms/dotnet/msbuild/customize for more details on customizing your build -->
+  <PropertyGroup>
+    <Authors>Adam Dickison</Authors>
+    <Description>Learning DDD and other cool shit</Description>
+    <Company>Frodus Conglomerate International</Company>        
+    <ImplicitUsings>true</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <TargetFramework>net9.0</TargetFramework>
+  </PropertyGroup>
+</Project>
