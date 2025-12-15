@@ -28,6 +28,11 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Docs", "Docs", "{208BA388-4
 		Docs\Tutorial.md = Docs\Tutorial.md
 	EndProjectSection
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Dinners", "Dinners", "{138A42AD-2737-F4F9-B18D-2C3EA094E69D}"
+	ProjectSection(SolutionItems) = preProject
+		ListDinners.http = ListDinners.http
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -60,5 +65,6 @@ Global
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{336305FA-707E-23D4-6976-389B882E26A9} = {FF7E0287-F91B-9293-4B04-0777FC500DE8}
+		{138A42AD-2737-F4F9-B18D-2C3EA094E69D} = {FF7E0287-F91B-9293-4B04-0777FC500DE8}
 	EndGlobalSection
 EndGlobal
