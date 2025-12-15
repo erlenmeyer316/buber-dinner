@@ -12,6 +12,12 @@
 
   <ItemGroup>
     <Folder Include="Common/Models/" />
+    <Folder Include="Common/ValueObjects/" />
+    <Folder Include="Dinner/ValueObjects/" />
+    <Folder Include="Host/ValueObjects/" />
+    <Folder Include="Menu/" />
+    <Folder Include="Menu/Entities/" />
+    <Folder Include="Menu/ValueObjects/" />
   </ItemGroup>
 
 </Project>
