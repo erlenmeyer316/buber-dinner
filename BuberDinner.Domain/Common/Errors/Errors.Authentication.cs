@@ -8,7 +8,7 @@ public static partial class Errors
     public static class Authenication
     {
         public static Error InvalidCredentials => Error.Validation(
-            code: "Auth.InvalidCredentials",
+            code: "Authentication.InvalidCredentials",
             description: "Invalid credentials."
         );
     }
