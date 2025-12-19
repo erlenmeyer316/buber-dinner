@@ -36,7 +36,7 @@ public abstract class ValueObject : IEquatable<ValueObject>
         return GetEqualityComponents()
             .Select(x => x?.GetHashCode() ?? 0) // if null return 0
             .Aggregate((x, y) => x ^ y); // bitwise compare (xor)
-}
+    }
 
     public bool Equals(ValueObject? other)
     {

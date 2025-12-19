@@ -1,6 +1,6 @@
 using System;
 using BuberDinner.Application.Common.Interfaces.Authentication;
-using BuberDinner.Domain.User;
+using BuberDinner.Domain.Users;
 
 namespace BuberDinner.Infrastructure.Persistence;
 

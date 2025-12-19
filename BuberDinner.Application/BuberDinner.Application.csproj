@@ -14,5 +14,12 @@
     <Folder Include="Authentication/Commands/Register/" />
     <Folder Include="Authentication/Common/" />
     <Folder Include="Common/Behaviors/" />
+    <Folder Include="Menus/" />
+    <Folder Include="Menus/Commands/" />
+    <Folder Include="Menus/Commands/CreateMenu/" />
+    <Folder Include="Menus/Common/" />
+    <Folder Include="Menus/Queries/" />
+    <Folder Include="Menus/Queries/GetMenu/" />
+    <Folder Include="Menus/Queries/GetMenuByHost/" />
   </ItemGroup>  
 </Project>

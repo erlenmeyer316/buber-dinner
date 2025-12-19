@@ -16,7 +16,10 @@ builder.Services.AddApplication();
 builder.Services.AddInfrastructure(builder.Configuration);
 
 // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
-builder.Services.AddOpenApi();
+builder.Services.AddOpenApi(options =>
+{
+    options.ShouldInclude = operation => operation.HttpMethod != null;
+});
 
 var app = builder.Build();
 
@@ -28,7 +31,6 @@ if (app.Environment.IsEnvironment("Local"))
 }
 
 app.UseExceptionHandler("/error");
-app.UseHttpsRedirection();
 app.UseAuthentication();
 app.UseAuthorization();
 app.MapControllers();

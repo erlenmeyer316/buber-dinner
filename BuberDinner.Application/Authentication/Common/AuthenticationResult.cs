@@ -1,5 +1,5 @@
 using System;
-using BuberDinner.Domain.User;
+using BuberDinner.Domain.Users;
 
 namespace BuberDinner.Application.Authentication.Common;
 

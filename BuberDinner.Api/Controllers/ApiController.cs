@@ -8,6 +8,7 @@ using Microsoft.AspNetCore.Mvc.ModelBinding;
 
 namespace BuberDinner.Api.Controllers
 {
+    [Route("[controller]")]
     [ApiController]
     [Authorize]
     public class ApiController : ControllerBase
