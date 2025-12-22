@@ -23,9 +23,9 @@ public class CreateMenuCommandHandler : IRequestHandler<CreateMenuCommand, Error
         await Task.CompletedTask;
            
         
-        // Create user (generate unique id) & persist to database
+        // Create menu (generate unique id) & persist to database
         var menu = Menu.Create(            
-            HostId.Create(new Guid(request.HostId)),
+            request.HostId,
             request.Name,
             request.Description,
             request.Sections.ConvertAll(sections => MenuSection.Create(
@@ -38,6 +38,6 @@ public class CreateMenuCommandHandler : IRequestHandler<CreateMenuCommand, Error
 
         _menuRepository.Add(menu);
 
-        return menu;
+        return menu;        
     }
 }

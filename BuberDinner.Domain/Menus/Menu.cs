@@ -25,7 +25,7 @@ public sealed class Menu : AggregateRoot<MenuId>
     public IReadOnlyList<MenuReviewId> MenuReviewIds => _menuReviewIds.AsReadOnly();
 
     public DateTime CreatedDateTime { get; private set; }
-    public DateTime UpdatedDateTime { get; private set; }
+    public DateTime? UpdatedDateTime { get; private set; }
 
     private Menu(
         MenuId menuId,
@@ -41,6 +41,8 @@ public sealed class Menu : AggregateRoot<MenuId>
         Description = description;
         _sections = sections!;
         AverageRating = averageRating;
+        CreatedDateTime = DateTime.UtcNow;
+        UpdatedDateTime = null;
     }
 
     public static Menu Create(
@@ -56,6 +58,7 @@ public sealed class Menu : AggregateRoot<MenuId>
             description,
             AverageRating.CreateNew(0),
             sections ?? new());
+
 
         return menu;
     }

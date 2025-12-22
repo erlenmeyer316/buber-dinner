@@ -1,11 +1,12 @@
 @host=http://localhost:5098
 @hostId=0f8fad5b-d9cb-469f-a165-70867728950e
-@token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJCdWJlckRpbm5lci5Eb21haW4uVXNlcnMuVmFsdWVPYmplY3RzLlVzZXJJZCIsImdpdmVuX25hbWUiOiJBZGFtIiwiZmFtaWx5X25hbWUiOiJEaWNraXNvbiIsImp0aSI6IjcwNmYzNTU2LTk2MjMtNDcyZC1hMjlkLTRlNWRhN2RiODEzYSIsImV4cCI6MTc2NjE4MzYyOSwiaXNzIjoiQnViZXJEaW5uZXIiLCJhdWQiOiJCdWJlckRpbm5lclVzZXJzIn0.cwFGmFfu7Xw9vJtuP6HKx4XjbDpvHFf8umgjU7FkOqU
+@token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJCdWJlckRpbm5lci5Eb21haW4uVXNlcnMuVmFsdWVPYmplY3RzLlVzZXJJZCIsImdpdmVuX25hbWUiOiJBZGFtIiwiZmFtaWx5X25hbWUiOiJEaWNraXNvbiIsImp0aSI6ImZlZmFkYTBiLWE0MDQtNGFiNC04MzRmLWUxNDlmOTRjZDkxYiIsImV4cCI6MTc2NjQzNzU3NSwiaXNzIjoiQnViZXJEaW5uZXIiLCJhdWQiOiJCdWJlckRpbm5lclVzZXJzIn0.tEL9NtB9LBEzOd6T1WiOUtw_jFZR2nO0wyevQP4hZDo
 POST {{host}}/hosts/{{hostId}}/menus
 Content-Type: application/json
 Authorization: Bearer {{token}}
 
 {
+  "hostId": "0f8fad5b-d9cb-469f-a165-70867728950e",
   "name": "Menu",
   "description": "This a list of menu sections",
   "sections": [

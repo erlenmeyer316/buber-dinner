@@ -1,7 +1,6 @@
 namespace BuberDinner.Contracts.Menus;
 
 public record CreateMenuRequest(
-    string HostId,
     string Name,
     string Description,
     List<MenuSection> Sections);
