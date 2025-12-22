@@ -1,23 +1,24 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
-  <PropertyGroup>
-    <TargetFramework>net9.0</TargetFramework>
-    <ImplicitUsings>enable</ImplicitUsings>
-    <Nullable>enable</Nullable>
-  </PropertyGroup>
+  
 
   <ItemGroup>
     <PackageReference Include="ErrorOr" Version="2.0.1" />
   </ItemGroup>
 
+  
+
   <ItemGroup>
-    <Folder Include="Common/Models/" />
-    <Folder Include="Common/ValueObjects/" />
-    <Folder Include="Dinner/ValueObjects/" />
-    <Folder Include="Host/ValueObjects/" />
-    <Folder Include="Menu/" />
-    <Folder Include="Menu/Entities/" />
-    <Folder Include="Menu/ValueObjects/" />
+    <Folder Include="Guests/" />
+    <Folder Include="Hosts/" />
+    <Folder Include="Hosts/ValueObjects/" />
+    <Folder Include="MenuReviews/" />
+    <Folder Include="MenuReviews/ValueObjects/" />
+    <Folder Include="Menus/" />
+    <Folder Include="Menus/Entities/" />
+    <Folder Include="Menus/ValueObjects/" />
+    <Folder Include="Users/" />
+    <Folder Include="Users/ValueObjects/" />
   </ItemGroup>
 
 </Project>
