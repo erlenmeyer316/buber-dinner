@@ -45,6 +45,12 @@ public sealed class Host : AggregateRoot<HostId>
         UpdatedDateTime = updatedDateTime;
     }
 
+#pragma warning disable CS8618
+    public Host()
+    {
+    }
+    #pragma warning restore CS8618
+
     public static Host Create(
         string firstName,
         string lastName,
