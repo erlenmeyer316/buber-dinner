@@ -66,6 +66,12 @@ public sealed class Dinner : AggregateRoot<DinnerId>
         UpdatedDateTime = updatedDateTime;
     }
 
+    #pragma warning disable CS8618  
+    public Dinner()
+    {
+    }
+    #pragma warning restore CS8618
+    
     public static Dinner Create(
         string name,
         string description,

@@ -34,6 +34,12 @@ public sealed class Reservation : Entity<ReservationId>
         UpdatedDateTime = updatedDateTime;
     }
 
+    #pragma warning disable CS8618
+    public Reservation()
+    {
+    }
+    #pragma warning restore CS8618
+
     public static Reservation Create(
         int guestCount,
         string reservationStatus,

@@ -20,6 +20,12 @@ public sealed class MenuSection: Entity<MenuSectionId>
         _items = items;
     }
 
+    #pragma warning disable CS8618
+    public MenuSection()
+    {
+    }
+    #pragma warning restore CS8618
+
     public static MenuSection Create(string name, string description, List<MenuItem> items)
     {
         return new(MenuSectionId.CreateUnique(), name, description, items);

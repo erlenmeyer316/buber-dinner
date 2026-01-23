@@ -42,6 +42,12 @@ public sealed class MenuReview: AggregateRoot<MenuReviewId>
         UpdatedDateTime = updatedDateTime;
     }
 
+    #pragma warning disable CS8618
+    public MenuReview()
+    {
+    }
+    #pragma warning restore CS8618
+
     public static MenuReview Create(
         Rating rating,
         string comment,

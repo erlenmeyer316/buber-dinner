@@ -27,6 +27,12 @@ public sealed class Menu : AggregateRoot<MenuId>
     public DateTime CreatedDateTime { get; private set; }
     public DateTime? UpdatedDateTime { get; private set; }
 
+    #pragma warning disable CS8618
+    private Menu() 
+    {
+    }
+    #pragma warning restore CS8618
+
     private Menu(
         MenuId menuId,
         HostId hostId,
@@ -45,6 +51,7 @@ public sealed class Menu : AggregateRoot<MenuId>
         UpdatedDateTime = null;
     }
 
+    
     public static Menu Create(
         HostId hostId,
         string name,

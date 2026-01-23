@@ -2,7 +2,7 @@ using System;
 using BuberDinner.Application.Common.Interfaces.Authentication;
 using BuberDinner.Domain.Users;
 
-namespace BuberDinner.Infrastructure.Persistence;
+namespace BuberDinner.Infrastructure.Persistence.Repositories;
 
 public class UserRepository : IUserRepository
 {
